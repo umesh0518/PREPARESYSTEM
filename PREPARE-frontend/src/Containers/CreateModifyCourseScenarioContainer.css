@@ -1,0 +1,24 @@
+.ReactTable .rt-tbody .rt-tr .rt-td {
+	border: 1px solid #fde3e3;
+  }
+  
+  .ReactTable .rt-thead .rt-tr .rt-th {
+	border: 1px solid #fde3e3;
+  }
+  
+
+.mainsection53224521{
+	padding: 20px;
+	padding-bottom:40px;
+}
+
+.btncell134321{
+	/*border: 3px solid cadetblue;
+	background-color: #b3cce6;*/
+	padding:5px;
+	margin-bottom: 5px;
+}
+
+#addLearnerForm > .btn {
+	margin-top:8px;
+}

@@ -1,0 +1,36 @@
+.homelist{
+	padding: 1px;
+	font-size: 1px;
+	margin-top:10px;
+}
+
+.homesidepane img{
+	height: 100%;
+} 
+
+h2{font-weight: bold;
+color: #0000e6;
+background-color: white;}
+
+h3{
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: bold;
+	color: #096eb3;
+}
+
+.btn-primary,
+.btn-primary:visited
+{
+	background-color: #ee2024;
+}
+
+.btn-primary:hover
+{
+	background-color: #096eb3;
+}
+
+.btn-primary:active,
+.btn-primary:focus
+{
+	background-color: #204b6d !important;
+}
