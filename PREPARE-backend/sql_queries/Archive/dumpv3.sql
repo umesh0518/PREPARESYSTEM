@@ -1,0 +1,211 @@
+-- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+--
+-- Host: 127.0.0.1    Database: prepare
+-- ------------------------------------------------------
+-- Server version	5.7.18
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `EVENTS`
+--
+
+DROP TABLE IF EXISTS `EVENTS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `EVENTS` (
+  `EVENT_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `SCENARIO_ID` int(11) NOT NULL,
+  `EVENT_NAME` varchar(255) NOT NULL,
+  `TIME_DURATION` int(11) DEFAULT NULL,
+  `TIME_START` int(11) NOT NULL,
+  `SKILL_TYPE` varchar(255) NOT NULL,
+  `SPECIFIC_SKILL` varchar(255) NOT NULL,
+  `WEIGHTAGE` int(11) DEFAULT NULL,
+  `CREATED_AT` datetime DEFAULT CURRENT_TIMESTAMP,
+  `UPDATE_AT` datetime DEFAULT CURRENT_TIMESTAMP,
+  `HEART_RATE` int(11) DEFAULT NULL,
+  `SYSTOLIC_BP` int(11) DEFAULT NULL,
+  `DISTOLIC_BP` int(11) DEFAULT NULL,
+  `SPO2` int(11) DEFAULT NULL,
+  `R_RATE` int(11) DEFAULT NULL,
+  `CARDIAC_RYTHM` varchar(255) DEFAULT NULL,
+  `SCENARIO_ROLE_ID` int(11) NOT NULL,
+  PRIMARY KEY (`EVENT_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `EVENTS`
+--
+
+LOCK TABLES `EVENTS` WRITE;
+/*!40000 ALTER TABLE `EVENTS` DISABLE KEYS */;
+INSERT INTO `EVENTS` VALUES (15,17,'Unresponsive patient',NULL,3,'psychomotor','dexterity',NULL,'2017-09-18 19:52:45','2017-09-18 19:52:45',-1,-1,-1,-1,-1,'no info',15),(16,17,'Heart Rate Drop',NULL,18,'psychomotor','dexterity',NULL,'2017-09-18 19:55:18','2017-09-18 19:55:18',-1,-1,-1,-1,-1,'no info',15),(17,17,'Cardiac Arrest',NULL,36,'cognitive','critical/clinical decision making',NULL,'2017-09-18 19:55:49','2017-09-18 19:55:49',-1,-1,-1,-1,-1,'no info',14),(18,17,'Abdomen Inflammation',NULL,50,'behavioral','judgment',NULL,'2017-09-18 19:56:54','2017-09-18 19:56:54',-1,-1,-1,-1,-1,'no info',14),(19,17,'Apply Turnicate',NULL,52,'psychomotor','coping strategies/psychological resilience (to stressful situations)',NULL,'2017-09-18 20:48:18','2017-09-18 20:48:18',-1,-1,-1,-1,-1,'no info',15);
+/*!40000 ALTER TABLE `EVENTS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PLAYED_EVENTS`
+--
+
+DROP TABLE IF EXISTS `PLAYED_EVENTS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PLAYED_EVENTS` (
+  `PLAY_ID` int(11) NOT NULL,
+  `EVENT_ID` varchar(64) NOT NULL,
+  `POINTS` varchar(64) NOT NULL DEFAULT '50',
+  `CREATED_AT` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `CATEGORY` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PLAYED_EVENTS`
+--
+
+LOCK TABLES `PLAYED_EVENTS` WRITE;
+/*!40000 ALTER TABLE `PLAYED_EVENTS` DISABLE KEYS */;
+INSERT INTO `PLAYED_EVENTS` VALUES (6,'6','97','2017-06-27 08:33:55',1,NULL),(7,'1','92','2017-08-21 05:48:02',2,NULL),(7,'2','99','2017-08-21 05:48:02',3,NULL),(8,'7','7','2017-08-23 11:26:57',4,NULL),(8,'8','9','2017-08-23 11:26:57',5,NULL),(8,'9','0','2017-08-23 11:26:57',6,NULL),(8,'10','7','2017-08-23 11:26:57',7,NULL),(8,'11','11','2017-08-23 11:26:57',8,NULL),(8,'12','9','2017-08-23 11:26:57',9,NULL),(8,'13','8','2017-08-23 11:26:57',10,NULL),(9,'7','18','2017-08-23 11:31:56',11,NULL),(9,'8','20','2017-08-23 11:31:56',12,NULL),(9,'9','28','2017-08-23 11:31:56',13,NULL),(9,'10','18','2017-08-23 11:31:56',14,NULL),(9,'11','22','2017-08-23 11:31:56',15,NULL),(9,'12','19','2017-08-23 11:31:56',16,NULL),(9,'13','20','2017-08-23 11:31:56',17,NULL),(10,'7','40','2017-08-23 11:42:51',18,NULL),(10,'8','32','2017-08-23 11:42:51',19,NULL),(10,'9','33','2017-08-23 11:42:51',20,NULL),(10,'10','38','2017-08-23 11:42:51',21,NULL),(10,'11','29','2017-08-23 11:42:51',22,NULL),(10,'12','39','2017-08-23 11:42:51',23,NULL),(10,'13','40','2017-08-23 11:42:51',24,NULL),(11,'7','58','2017-08-23 11:43:47',25,NULL),(11,'8','67','2017-08-23 11:43:47',26,NULL),(11,'9','70','2017-08-23 11:43:47',27,NULL),(11,'10','68','2017-08-23 11:43:47',28,NULL),(11,'11','68','2017-08-23 11:43:47',29,NULL),(11,'12','71','2017-08-23 11:43:47',30,NULL),(11,'13','70','2017-08-23 11:43:47',31,NULL),(12,'7','76','2017-08-23 11:44:38',32,NULL),(12,'8','86','2017-08-23 11:44:38',33,NULL),(12,'9','81','2017-08-23 11:44:38',34,NULL),(12,'10','87','2017-08-23 11:44:38',35,NULL),(12,'11','82','2017-08-23 11:44:38',36,NULL),(12,'12','84','2017-08-23 11:44:38',37,NULL),(12,'13','79','2017-08-23 11:44:38',38,NULL),(13,'7','98','2017-08-23 11:45:34',39,NULL),(13,'8','100','2017-08-23 11:45:34',40,NULL),(13,'9','98','2017-08-23 11:45:34',41,NULL),(13,'10','99','2017-08-23 11:45:34',42,NULL),(13,'11','97','2017-08-23 11:45:34',43,NULL),(13,'12','99','2017-08-23 11:45:34',44,NULL),(13,'13','99','2017-08-23 11:45:34',45,NULL),(14,'1','86','2017-08-23 14:01:01',46,NULL),(14,'2','89','2017-08-23 14:01:01',47,NULL),(15,'7','100','2017-08-25 22:18:18',48,NULL),(15,'8','100','2017-08-25 22:18:18',49,NULL),(15,'9','100','2017-08-25 22:18:18',50,NULL),(15,'10','100','2017-08-25 22:18:18',51,NULL),(15,'11','100','2017-08-25 22:18:18',52,NULL),(15,'12','100','2017-08-25 22:18:18',53,NULL),(15,'13','100','2017-08-25 22:18:18',54,NULL),(16,'15','4','2017-09-18 20:57:09',55,NULL),(16,'16','3','2017-09-18 20:57:09',56,NULL),(16,'17','2','2017-09-18 20:57:09',57,NULL),(16,'18','3','2017-09-18 20:57:09',58,NULL),(16,'19','3','2017-09-18 20:57:09',59,NULL),(17,'15','13','2017-09-18 20:58:04',60,NULL),(17,'16','16','2017-09-18 20:58:04',61,NULL),(17,'17','19','2017-09-18 20:58:04',62,NULL),(17,'18','16','2017-09-18 20:58:04',63,NULL),(17,'19','14','2017-09-18 20:58:04',64,NULL),(18,'15','35','2017-09-18 20:58:51',65,NULL),(18,'16','38','2017-09-18 20:58:51',66,NULL),(18,'17','42','2017-09-18 20:58:51',67,NULL),(18,'18','43','2017-09-18 20:58:51',68,NULL),(18,'19','40','2017-09-18 20:58:51',69,NULL),(19,'15','58','2017-09-18 20:59:37',70,NULL),(19,'16','59','2017-09-18 20:59:37',71,NULL),(19,'17','60','2017-09-18 20:59:37',72,NULL),(19,'18','63','2017-09-18 20:59:37',73,NULL),(19,'19','67','2017-09-18 20:59:37',74,NULL),(20,'15','75','2017-09-18 21:00:22',75,NULL),(20,'16','78','2017-09-18 21:00:22',76,NULL),(20,'17','80','2017-09-18 21:00:22',77,NULL),(20,'18','72','2017-09-18 21:00:22',78,NULL),(20,'19','79','2017-09-18 21:00:22',79,NULL),(21,'15','98','2017-09-18 21:01:12',80,NULL),(21,'16','96','2017-09-18 21:01:12',81,NULL),(21,'17','98','2017-09-18 21:01:12',82,NULL),(21,'18','100','2017-09-18 21:01:12',83,NULL),(21,'19','100','2017-09-18 21:01:12',84,NULL);
+/*!40000 ALTER TABLE `PLAYED_EVENTS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PLAYS`
+--
+
+DROP TABLE IF EXISTS `PLAYS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PLAYS` (
+  `PLAY_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(64) NOT NULL,
+  `TRAINEE_F_NAME` varchar(64) NOT NULL,
+  `SCENARIO_ID` int(11) NOT NULL,
+  `CREATED_AT` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `TRAINEE_L_NAME` varchar(64) NOT NULL,
+  `TRAINEE_DISCIPLINE` varchar(45) NOT NULL,
+  `TRAINEE_YEARS` int(11) NOT NULL,
+  PRIMARY KEY (`PLAY_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PLAYS`
+--
+
+LOCK TABLES `PLAYS` WRITE;
+/*!40000 ALTER TABLE `PLAYS` DISABLE KEYS */;
+INSERT INTO `PLAYS` VALUES (1,'1','fds',47,'2017-06-26 05:18:13','fd','gfd',1),(2,'1','hamza',58,'2017-06-27 03:56:10','owais','anestheology',3),(3,'1','talha',58,'2017-06-27 03:57:52','owais','engineering',5),(4,'1','hamza',58,'2017-06-27 04:00:36','owais','engineering',1),(5,'1','talha',58,'2017-06-27 04:01:52','owais','engineering',1),(6,'1','Talha',6,'2017-06-27 08:33:55','Owais','HM',1),(7,'1','Hamza',1,'2017-08-21 05:48:02','Owais','CS',2),(8,'1','John',7,'2017-08-23 11:26:57','Doe','CS',1),(9,'1','John',7,'2017-08-23 11:31:56','Doe','CS',1),(10,'1','John',7,'2017-08-23 11:42:51','Doe','CS',1),(11,'1','John',7,'2017-08-23 11:43:47','Doe','CS',1),(12,'1','John',7,'2017-08-23 11:44:38','Doe','CS',1),(13,'1','John',7,'2017-08-23 11:45:34','Doe','CS',1),(14,'1','John',1,'2017-08-23 14:01:01','Doe','Anesthesia',1),(15,'1','John',7,'2017-08-25 22:18:18','Doe','CS',1),(16,'1','John',17,'2017-09-18 20:57:09','Doe','CS',1),(17,'1','John',17,'2017-09-18 20:58:03','Doe','CS',1),(18,'1','John',17,'2017-09-18 20:58:51','Doe','CS',1),(19,'1','John',17,'2017-09-18 20:59:37','Doe','CS',1),(20,'1','John',17,'2017-09-18 21:00:22','Doe','CS',1),(21,'1','John',17,'2017-09-18 21:01:12','Doe','CS',1);
+/*!40000 ALTER TABLE `PLAYS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SCENARIO`
+--
+
+DROP TABLE IF EXISTS `SCENARIO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SCENARIO` (
+  `SCENARIO_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `SCENARIO_NAME` varchar(255) DEFAULT NULL,
+  `CREATED_AT` datetime DEFAULT CURRENT_TIMESTAMP,
+  `UPDATE_AT` datetime DEFAULT CURRENT_TIMESTAMP,
+  `TIME_DURATION` int(11) NOT NULL,
+  `CATEGORY` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`SCENARIO_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SCENARIO`
+--
+
+LOCK TABLES `SCENARIO` WRITE;
+/*!40000 ALTER TABLE `SCENARIO` DISABLE KEYS */;
+INSERT INTO `SCENARIO` VALUES (17,'Trauma','2017-09-18 19:49:20','2017-09-18 19:49:20',180,'Anesthesiology');
+/*!40000 ALTER TABLE `SCENARIO` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SCENARIO_ROLE`
+--
+
+DROP TABLE IF EXISTS `SCENARIO_ROLE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SCENARIO_ROLE` (
+  `SCENARIO_ROLE_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `SCENARIO_ID` int(11) NOT NULL,
+  `ROLE_NAME` varchar(255) DEFAULT NULL,
+  `CREATED_AT` datetime DEFAULT CURRENT_TIMESTAMP,
+  `UPDATE_AT` datetime DEFAULT CURRENT_TIMESTAMP,
+  `NUMBER` int(11) NOT NULL,
+  PRIMARY KEY (`SCENARIO_ROLE_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SCENARIO_ROLE`
+--
+
+LOCK TABLES `SCENARIO_ROLE` WRITE;
+/*!40000 ALTER TABLE `SCENARIO_ROLE` DISABLE KEYS */;
+INSERT INTO `SCENARIO_ROLE` VALUES (9,15,'Nurse','2017-09-12 04:19:46','2017-09-12 04:19:46',2),(10,15,'Doctors','2017-09-12 04:19:46','2017-09-12 04:19:46',3),(11,16,'Head Nurse','2017-09-12 08:28:33','2017-09-12 08:28:33',1),(12,16,'Nurses j','2017-09-12 08:28:33','2017-09-12 08:28:33',2),(13,16,'Doctor','2017-09-12 08:28:33','2017-09-12 08:28:33',1),(14,17,'Doctor','2017-09-18 19:49:20','2017-09-18 19:49:20',1),(15,17,'Nurse','2017-09-18 19:49:20','2017-09-18 19:49:20',2);
+/*!40000 ALTER TABLE `SCENARIO_ROLE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL,
+  `password` char(60) NOT NULL,
+  `fname` varchar(45) NOT NULL,
+  `lname` varchar(45) NOT NULL,
+  `discipline` varchar(45) NOT NULL,
+  `experience` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'mowais','$2a$10$ZzsIfwXKVy.mxD.nUni9AuDxPP57WNVevU6g44k1fN/GLeUrNiMXW','hamza','owais','CS',1),(2,'spapada','$2a$10$IfSFEeSZZ89X47Nzc/fdAufLe4zzrciM7mCTjUjLrPyZKimREJz6O','Scott','Papada','Anesthesiology',3),(3,'mowais1','$2a$10$HMHNLMFL2/KsZYHsJjs8YeOzoLXbnPXVKqZ.N8rcCtcH8vK/teniq','hamza','owais','cd',1);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-09-18 21:15:55
